@@ -1,0 +1,128 @@
+img {
+  max-width: 100%;
+}
+
+.preview {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.preview-pic {
+  flex-grow: 1;
+}
+
+.preview-thumbnail.nav-tabs {
+  border: none;
+  margin-top: 15px;
+}
+
+.preview-thumbnail.nav-tabs li {
+  width: 18%;
+  margin-right: 2.5%;
+}
+
+.preview-thumbnail.nav-tabs li img {
+  max-width: 100%;
+  display: block;
+}
+
+.preview-thumbnail.nav-tabs li a {
+  padding: 0;
+  margin: 0;
+}
+
+.preview-thumbnail.nav-tabs li:last-of-type {
+  margin-right: 0;
+}
+
+.tab-content img {
+  width: 100%;
+  transition: opacity 0.3s ease;
+}
+
+.card {
+  /* margin-top: 50px; */
+  background: #eee;
+  padding: 2em;
+  line-height: 1.5em;
+}
+
+.wrapper {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.details {
+  flex-direction: column;
+  display: flex;
+}
+
+.product-title, .price, .sizes, .colors {
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.price {
+  color: #ff9f1a;
+}
+
+.product-title, .rating, .product-description, .price, .vote, .sizes {
+  margin-bottom: 15px;
+}
+
+.size {
+  padding: 5px 10px;
+  border: 2px solid;
+}
+
+.color {
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 10px;
+  height: 2em;
+  width: 2em;
+  border-radius: 2px; }
+  .color:first-of-type {
+    margin-left: 20px; }
+
+.add-to-cart, .like {
+  background: #ff9f1a;
+  padding: 1em 1.5em;
+  border: none;
+  color: #fff;
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: background 0.3s ease;
+}
+
+.add-to-cart:hover, .like:hover {
+  background: #b36800;
+}
+
+.not-available {
+  text-align: center;
+  line-height: 2em; }
+  .not-available:before {
+    font-family: fontawesome;
+    content: "\f00d";
+    color: #fff; }
+
+.orange { background: #ff9f1a; }
+.green { background: #85ad00; }
+.blue { background: #0076ad; }
+
+.modal-content{
+  width: 80%;
+  margin: auto;
+}
+
+.own-close{
+    right: 16px;
+    z-index: 1051;
+    font-weight: 800;
+    font-size: 1.5rem;
+    border: none;
+    top: 10px;
+    background: none;
+}
