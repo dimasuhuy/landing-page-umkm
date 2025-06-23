@@ -26,6 +26,8 @@ RUN composer install --no-interaction --no-dev --optimize-autoloader
 RUN chown -R www-data:www-data /var/www/html \
     && chmod -R 755 /var/www/html
 
+# Expose Laravel's port
 EXPOSE 8000
 
+# Run Laravel using artisan serve
 CMD ["php", "artisan", "serve", "--host=0.0.0.0", "--port=8000"]
