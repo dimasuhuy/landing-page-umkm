@@ -29,5 +29,7 @@ RUN chown -R www-data:www-data /var/www/html \
 # Expose Laravel's port
 EXPOSE 8000
 
+RUN ls -la /var/www/html/vendor
+
 # Run Laravel using artisan serve
 CMD ["php", "artisan", "serve", "--host=0.0.0.0", "--port=8000"]
