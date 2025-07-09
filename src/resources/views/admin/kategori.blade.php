@@ -229,38 +229,38 @@
                                         <button type="button" data-id="{{ $kategori->id }}" class="btn btn-primary" data-toggle="modal" data-target="#updateKategori{{ $kategori->id }}">Update</button>
                                     </td>   
                                 </tr>
+                                <!-- Modal Update -->
+                                <div class="modal fade" id="updateKategori{{ $kategori->id }}" tabindex="-1" role="dialog" aria-labelledby="tambahTitle" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered" role="document">
+                                        <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLongTitle">Update Kategori</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <form method="POST" action="{{ route('admin.kategori.update', $kategori->id) }}">
+                                        @csrf
+                                        @method('PUT')
+                                        <div class="modal-body">
+                                            <div class="user-box">
+                                            <label style="color: black; font-size: larger; font-weight: bold;">Ganti Kategori:</label>
+                                            <input type="text" class="p-2" value="{{ $kategori->name }}" placeholder="Tambahkan nama kategori" name="name" >
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                            <button type="submit" class="btn btn-primary">Save</button>
+                                        </div>
+                                        </form>
+                                        </div>
+                                    </div>
+                                </div>
                             @endforeach
                         </tbody>
                         </table>
                     </div>
 
-                    </div>
-                    <!-- Modal Update -->
-                    <div class="modal fade" id="updateKategori{{ $kategori->id }}" tabindex="-1" role="dialog" aria-labelledby="tambahTitle" aria-hidden="true">
-                        <div class="modal-dialog modal-dialog-centered" role="document">
-                            <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLongTitle">Update Kategori</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <form method="POST" action="{{ route('admin.kategori.update', $kategori->id) }}">
-                            @csrf
-                            @method('PUT')
-                            <div class="modal-body">
-                                <div class="user-box">
-                                <label style="color: black; font-size: larger; font-weight: bold;">Ganti Kategori:</label>
-                                <input type="text" class="p-2" value="{{ $kategori->name }}" placeholder="Tambahkan nama kategori" name="name" >
-                                </div>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                <button type="submit" class="btn btn-primary">Save</button>
-                            </div>
-                            </form>
-                            </div>
-                        </div>
                     </div>
 
                     <!-- Modal tambah -->

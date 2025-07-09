@@ -2,18 +2,24 @@
 
 namespace Database\Seeders;
 
+use App\Models\Admin;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
-use App\Models\Admin;
 
 class AdminSeeder extends Seeder
 {
     public function run()
     {
-        Admin::create([
-            'name' => 'Admin',
-            'email' => 'admin@sidehousecafe.com',
-            'password' => Hash::make('dimasrohman_229'),
-        ]);
+        $adminExists = Admin::where('email', 'admin@sidehousecafe.com')->exists();
+
+        if (!$adminExists) {
+            $admin = Admin::create([
+                'name' => 'Admin',
+                'email' => 'admin@sidehousecafe.com',
+                'password' => Hash::make('dimasrohman_229'),
+            ]);
+
+            $admin->replicateToMysql();
+        }
     }
 }

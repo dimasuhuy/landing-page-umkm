@@ -25,6 +25,22 @@ services:
       - pgdata:/var/lib/postgresql/data
     networks:
       - laravel
+    
+  mysql:
+    image: mysql:8.0
+    container_name: mysql_db
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: mysql_db
+      MYSQL_USER: mysql_user
+      MYSQL_PASSWORD: mysqlpass123
+      MYSQL_ROOT_PASSWORD: rootpass123
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysqldata:/var/lib/mysql
+    networks:
+      - laravel
 
   web:
     image: nginx:latest
@@ -41,6 +57,7 @@ services:
 
 volumes:
   pgdata:
+  mysqldata:
 
 networks:
   laravel:

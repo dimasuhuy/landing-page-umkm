@@ -199,86 +199,40 @@
                 <div class="container-fluid">
 
                 <div class="row">
+                    @foreach ($kategoris as $kategori)
                     <div class="col-xl-3 col-md-6 mb-4">
                         <div class="card border-left-primary shadow h-100 py-2">
                             <div class="card-body p-4">
                                 <div class="row no-gutters align-items-center" style="color: black;">
                                     <div class="mr-3">
-                                        <i class="bi bi-cup-hot" style="font-size: xx-large;"></i>
+                                        <i class="{{ kategoriIcon($kategori->name) }}" style="font-size: xx-large;"></i>
                                     </div>
                                     <div class="col mr-2">
                                         <div class="text-xs font-weight-bold text-uppercase mb-1">
-                                            Coffee</div>
+                                            {{ $kategori->name }}
+                                        </div>
                                         <div class="h5 mb-0 font-weight-bold">
-                                            10
-                                            <!-- <span>&#8451;</span> -->
+                                            {{ $kategori->menus->count() }}
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-
-                    <div class="col-xl-3 col-md-6 mb-4">
-                        <div class="card border-left-success shadow h-100 py-2">
-                            <div class="card-body p-4">
-                                <div class="row no-gutters align-items-center" style="color: black;">
-                                    <div class="mr-3">
-                                        <i class="bi bi-cup-straw" style="font-size: xx-large;"></i>
-                                    </div>
-                                    <div class="col mr-2">
-                                        <div class="text-xs font-weight-bold text-uppercase mb-1">
-                                            Light</div>
-                                        <div class="h5 mb-0 font-weight-bold">
-                                        100
-                                            <!-- <span>&#8451;</span> -->
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-xl-3 col-md-6 mb-4">
-                        <div class="card border-left-food shadow h-100 py-2">
-                            <div class="card-body p-4">
-                                <div class="row no-gutters align-items-center" style="color: black;">
-                                    <div class="mr-3">
-                                        <i class="bi bi-fork-knife" style="font-size: xx-large;"></i>
-                                    </div>
-                                    <div class="col mr-2">
-                                        <div class="text-xs font-weight-bold text-uppercase mb-1">
-                                            Food</div>
-                                        <div class="h5 mb-0 font-weight-bold">
-                                        100
-                                            <!-- <span>&#8451;</span> -->
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-xl-3 col-md-6 mb-4">
-                        <div class="card border-left-snack shadow h-100 py-2">
-                            <div class="card-body p-4">
-                                <div class="row no-gutters align-items-center" style="color: black;">
-                                    <div class="mr-3">
-                                        <i class="bi bi-thunderbolt-fill" style="font-size: xx-large;"></i>
-                                    </div>
-                                    <div class="col mr-2">
-                                        <div class="text-xs font-weight-bold text-uppercase mb-1">
-                                            Snack</div>
-                                        <div class="h5 mb-0 font-weight-bold">
-                                        100
-                                            <!-- <span>&#8451;</span> -->
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
+                    @php
+                        function kategoriIcon($name) {
+                            return match(strtolower($name)) {
+                                'coffe' => 'bi bi-cup-hot',
+                                'non-coffe' => 'bi bi-cup-straw',
+                                'food' => 'bi bi-fork-knife',
+                                'snack' => 'bi bi-thunderbolt-fill',
+                                default => 'bi bi-question-circle',
+                            };
+                        }
+                    @endphp
                 </div>
+
 
                     <div class="col-lg-12 p-0">
 

@@ -148,6 +148,14 @@
                         <i class="fa fa-bars"></i>
                     </button>
 
+                    @if (session('success'))
+                        <div class="alert alert-success">{{ session('success') }}</div>
+                    @endif
+
+                    @error('name')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
+
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
 

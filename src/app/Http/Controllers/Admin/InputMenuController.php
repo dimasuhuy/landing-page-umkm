@@ -19,7 +19,9 @@ class InputMenuController extends Controller
 
     public function storeMenu(Request $request)
     {
-        // dd($request->file('image'));
+        // \Log::info('>>> MASUK FUNGSI storeMenu <<<');
+
+        // dd($request);
 
         $request->validate([
             'name' => 'required|string|max:255',
@@ -40,7 +42,7 @@ class InputMenuController extends Controller
         $imageName = time() . '.' . $ext;
         $request->image->move(public_path('img/product'), $imageName);
 
-        Menu::create([
+        $menu =  Menu::create([
             'name' => $request->name,
             'description' => $request->description,
             'price' => $request->price,
@@ -48,6 +50,7 @@ class InputMenuController extends Controller
             'category_id' => $request->category_id,
             'image' => $imageName
         ]);
+        // dd($menu);
 
         return redirect()->back()->with('success', 'Menu berhasil ditambahkan!');
     }
